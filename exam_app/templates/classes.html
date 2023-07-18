@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="nav-container">
+       <div><h2>Namasti, {{user.first_name}}</h2></div> 
+        <div>
+            <a href="{% url 'logout'%}">log-out</a>
+        </div>
+            
+    </nav>
+    <hr>
+    <p class="p_classes">cource shedule</p>
+    <div class="container">
+        <table class="table table-striped">
+          <th>Class Name</th>
+          <th>Instructor</th>
+          <th>Weekday</th>
+          <th>price</th>
+          {% for cource in all_cources%}
+          <tr>
+            <td><a href="{% url 'details' id=cource.id%}">{{cource.name}}</a>
+                {% if user.id == cource.user.id%}
+                    <a href="{% url 'edit' id=cource.id%}">edit</a>
+                {% endif%}
+            </td>
+            <td>{{cource.user.first_name}}</td>
+            <td>{{cource.day}}</td>
+            <td>{{cource.price}}</td>
+          </tr>
+          {% endfor%}
+          </table>
+        </div>
+        <div>
+            <div class="button_control"><a class="btn btn-primary" href="{% url 'create_cource'%}" role="button">+ new cource</a></div>
+        </div>
+        
+</body>
+</html>

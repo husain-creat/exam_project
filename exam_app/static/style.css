@@ -1,0 +1,41 @@
+.loginreg{
+    padding:20px;
+    width:80%;
+    display:flex;
+    justify-content: space-around;
+}
+td{
+    text-align:left;
+}
+
+.errors{
+    margin:0px auto;
+    width:600px;
+    color:red;
+    text-align:left;
+}
+.right{
+    text-align:right;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.detail_container{
+    margin-left: 100px;
+    margin-top: 100px;
+}
+.button_control{
+    margin-left: 120px;
+    margin-top: 40px;
+}
+.p_classes{
+    margin-left: 120px;
+}
+.edit_delete{
+    margin-left: 50px;
+}
+.cource_h1{
+    margin-left: 120px;
+}
